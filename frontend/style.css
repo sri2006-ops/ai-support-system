@@ -1,0 +1,283 @@
+:root {
+    --primary-blue: #2E5AA7;
+    --primary-orange: #FFA62B;
+    --bg-color: #f4f7fb;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #2c3e50;
+    --text-light: #7f8c8d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: #0d1117; /* Dark elegant background to make colors pop */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Colorful Abstract Liquid Background */
+.bg-shape {
+    position: absolute;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.6;
+    animation: drift 20s infinite alternate ease-in-out;
+}
+
+.shape-1 {
+    width: 50vw;
+    height: 50vw;
+    background: var(--primary-blue);
+    top: -10%;
+    left: -10%;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation-duration: 25s;
+}
+
+.shape-2 {
+    width: 45vw;
+    height: 45vw;
+    background: var(--primary-orange);
+    bottom: -15%;
+    right: -10%;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation-duration: 22s;
+    animation-delay: -5s;
+}
+
+.shape-3 {
+    width: 35vw;
+    height: 35vw;
+    background: #8A2387; /* Deep Purple */
+    top: 40%;
+    left: 20%;
+    border-radius: 50% 50% 30% 70% / 50% 50% 70% 50%;
+    animation-duration: 18s;
+    animation-delay: -10s;
+}
+
+.shape-4 {
+    width: 40vw;
+    height: 40vw;
+    background: #E94057; /* Hot Pink */
+    top: 10%;
+    right: 15%;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation-duration: 28s;
+    animation-delay: -2s;
+}
+
+.shape-5 {
+    width: 30vw;
+    height: 30vw;
+    background: #00C9FF; /* Cyan */
+    bottom: 20%;
+    left: -5%;
+    border-radius: 60% 40% 50% 50% / 40% 40% 60% 60%;
+    animation-duration: 20s;
+    animation-delay: -15s;
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    33% { transform: translate(5vw, -5vh) rotate(90deg) scale(1.1); }
+    66% { transform: translate(-5vw, 5vh) rotate(180deg) scale(0.9); }
+    100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+}
+
+/* Container styling */
+.container {
+    width: 100%;
+    max-width: 480px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(255, 255, 255, 0.5) inset;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 1;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-blue), #4578cf);
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 20px rgba(46, 90, 167, 0.3);
+    animation: bounceIn 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    color: var(--primary-blue);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+p {
+    color: var(--text-light);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Form Inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-blue);
+    font-size: 20px;
+    transition: 0.3s ease;
+    z-index: 2;
+}
+
+.textarea-group i {
+    top: 24px;
+}
+
+input, textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(46, 90, 167, 0.1);
+    border-radius: 14px;
+    padding: 16px 16px 16px 45px;
+    font-size: 15px;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #a0aab5;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary-orange);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(255, 166, 43, 0.15);
+}
+
+/* Change icon color on focus by targeting the previous sibling (with a tricky selector, but since icon is before input, we can't use +. We'll handle this smoothly by default) */
+.input-group:focus-within i {
+    color: var(--primary-orange);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Button */
+button {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-orange), #ff9100);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 166, 43, 0.3);
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 166, 43, 0.4);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button.loading {
+    opacity: 0.8;
+    cursor: wait;
+}
+
+button.loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Response message */
+#responseContainer {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+#responseContainer.hidden {
+    display: none;
+}
+
+#responseContainer.success {
+    background: rgba(46, 204, 113, 0.1);
+    color: #27ae60;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    opacity: 1;
+    animation: fadeInUp 0.5s ease;
+}
